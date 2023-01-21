@@ -1,5 +1,6 @@
 // ASSESSMENT 6: JavaScript Coding Practical Questions with Jest
 
+
 // Please read all questions thoroughly
 // Pseudo coding is REQUIRED
 // If you get stuck, please leave comments to help us understand your thought process
@@ -22,6 +23,64 @@ const people = [
 // Expected output: ["Ford Prefect is a hitchhiker.", "Zaphod Beeblebrox is president of the galaxy.", "Arthur Dent is a radio employee."]
 
 // b) Create the function that makes the test pass.
+
+// psuedo code: 
+// input: array of objects
+// output: array of objects with a sentence about each person and name capitilized.
+// create jest test.
+// test 
+// output from test: ReferenceError: sentenceCapMaker is not defined
+
+      // 36 | describe("sentenceCapMaker", () => {
+      //   37 |   it("returns names cap and in sentence", () =>{
+      // > 38 |     expect(sentenceCapMaker()).toEqual(["Ford Prefect is a hitchhiker.", "Zaphod Beeblebrox is president of the galaxy.", "Arthur Dent is a radio employee."])
+      //      |     ^
+      //   39 |   } )
+      //   40 | })
+      //   41 |
+  
+// create function, possibly use touppercase i will be calling on certian keys in the object and use string interpolation to create a sentence about the person. use a for of loop , take strings from array and upcase seperatly and add into array??? 
+
+// test:  PASS  ./code-challenges.test.js
+//   sentenceCapMaker
+//   ✓ returns names cap and in sentence (1 ms)
+
+// Test Suites: 1 passed, 1 total
+// Tests:       1 passed, 1 total
+// Snapshots:   0 total
+// Time:        0.18 s, estimated 1 s
+// Ran all test suites.
+// ✨  Done in 0.68s.
+
+
+
+describe("sentenceCapMaker", () => {
+  it("returns names cap and in sentence", () =>{
+    expect(sentenceCapMaker(people)).toEqual(["Ford Prefect is a hitchhiker.", "Zaphod Beeblebrox is president of the galaxy.", "Arthur Dent is a radio employee."])
+  } )
+})
+
+const sentenceCapMaker = (object) => {
+  let array = []
+  for (const person of object){
+    let job = person.occupation
+    let name = person.name
+    let split = name.split(" ")
+    let capitilized = split[0][0].toUpperCase()
+    let restOfWord = split[0].substring(1)
+    let capitilized2 = split[1][0].toUpperCase()
+    let restOfWord2 = split[1].substring(1)
+    let firstName = (capitilized + restOfWord)
+    let lastName = (capitilized2 + restOfWord2)
+    array.push(`${firstName} ${lastName} is ${job}.`)
+ 
+  }
+  return array
+}
+
+// ---------THAT WAS TERRIBLE AND TOOK HOURS----------
+
+
 
 // --------------------2) Create a function that takes in a mixed data array and returns an array of only the REMAINDERS of the numbers when divided by 3.
 
