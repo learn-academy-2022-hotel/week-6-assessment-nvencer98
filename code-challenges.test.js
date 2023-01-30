@@ -54,29 +54,29 @@ const people = [
 
 
 
-describe("sentenceCapMaker", () => {
-  it("returns names cap and in sentence", () =>{
-    expect(sentenceCapMaker(people)).toEqual(["Ford Prefect is a hitchhiker.", "Zaphod Beeblebrox is president of the galaxy.", "Arthur Dent is a radio employee."])
-  } )
-})
+// describe("sentenceCapMaker", () => {
+//   it("returns names cap and in sentence", () =>{
+//     expect(sentenceCapMaker(people)).toEqual(["Ford Prefect is a hitchhiker.", "Zaphod Beeblebrox is president of the galaxy.", "Arthur Dent is a radio employee."])
+//   } )
+// })
 
-const sentenceCapMaker = (object) => {
-  let array = []
-  for (const person of object){
-    let job = person.occupation
-    let name = person.name
-    let split = name.split(" ")
-    let capitilized = split[0][0].toUpperCase()
-    let restOfWord = split[0].substring(1)
-    let capitilized2 = split[1][0].toUpperCase()
-    let restOfWord2 = split[1].substring(1)
-    let firstName = (capitilized + restOfWord)
-    let lastName = (capitilized2 + restOfWord2)
-    array.push(`${firstName} ${lastName} is ${job}.`)
+// const sentenceCapMaker = (object) => {
+//   let array = []
+//   for (const person of object){
+//     let job = person.occupation
+//     let name = person.name
+//     let split = name.split(" ")
+//     let capitilized = split[0][0].toUpperCase()
+//     let restOfWord = split[0].substring(1)
+//     let capitilized2 = split[1][0].toUpperCase()
+//     let restOfWord2 = split[1].substring(1)
+//     let firstName = (capitilized + restOfWord)
+//     let lastName = (capitilized2 + restOfWord2)
+//     array.push(`${firstName} ${lastName} is ${job}.`)
  
-  }
-  return array
-}
+//   }
+//   return array
+// }
 
 // ---------THAT WAS TERRIBLE AND TOOK HOURS----------
 
@@ -93,6 +93,55 @@ const hodgepodge2 = [5, "Hola", 43, -34, "greetings", true]
 
 // b) Create the function that makes the test pass.
 
+// psuedo code
+
+// input: mixed data array
+// output: only numbers in array, remainders after dividied by 3. 
+// create test 
+// pass test
+// 8 | describe("getRemainders", () => {
+//   99 |   it("returns names cap and in sentence", () =>{
+//     > 100 |     expect(getRemainders(hodgepodge1)).toEqual([ 2, 0, -1, 0 ])
+//           |                                        ^
+//       101 |   } )
+//       102 | })
+//       103 |
+
+//       at Object.toEqual (code-challenges.test.js:100:40)
+
+// Test Suites: 1 failed, 1 total
+// Tests:       1 failed, 1 passed, 2
+
+
+// create function, filter array once numbers are identifuied, map array to create new array. have it % 3. 
+
+
+
+
+// describe("getRemainders", () => {
+//   it("does things", () =>{
+//     expect(getRemainders(hodgepodge1)).toEqual([ 2, 0, -1, 0 ])
+//   } )
+// })
+// describe("getRemainders", () => {
+//   it("does things", () =>{
+//     expect(getRemainders(hodgepodge2)).toEqual([ 2, 1, -1 ])
+//   } )
+// })
+
+
+
+// function getRemainders(arr) {
+//   return arr.filter(item => typeof item === 'number')
+//     .map(item => item % 3)
+    
+// }
+// console.log(getRemainders(hodgepodge1))
+// console.log(getRemainders(hodgepodge2))
+
+
+
+
 // --------------------3) Create a function that takes in an array of numbers and returns the sum of all the numbers cubed.
 
 // a) Create a test with an expect statement using the variables provided.
@@ -103,3 +152,22 @@ const cubeAndSum2 = [0, 5, 10]
 // Expected output: 1125
 
 // b) Create the function that makes the test pass.
+
+
+describe("sumOfCubes", () => {
+  it("also does things", () =>{
+    expect(sumOfCubes(cubeAndSum1)).toEqual(99)
+  } )
+})
+describe("sumOfCubes", () => {
+  it("also does things", () =>{
+    expect(sumOfCubes(cubeAndSum1)).toEqual(99)
+  } )
+})
+
+function sumOfCubes(numbers) {
+  return numbers.reduce((sum, num) => sum + Math.pow(num, 3), 0);
+}
+
+console.log(sumOfCubes(cubeAndSum1))
+console.log(sumOfCubes(cubeAndSum2))
